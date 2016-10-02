@@ -1,4 +1,4 @@
-## Dependency injection
+# Dependency injection
 
 Dependency injection (DI) is a mechanism of providing the object with the dependencies (references to other objects the original object is dependent on). If you're not familiar with this pattern, this vague definition wont tell you much. But really, this concept is a lot simplier than you might think, and I'm sure you've done a million times before. As James Shore writes in [this useful article about DI][1]: "Dependency injection means giving an object its instance variables.". That's it... And nothing more.
 
@@ -44,7 +44,7 @@ public class DataPresenter {
 }
 ```
 
-So, this was the dependency injection you've just did. :) Now, `DataPresenter` is decoupled from particular `IRestInteractor` instance and knows nothing about the source of data (it may pe production server, development server, mock or whatever else). The next object in the dependencies tree may choose to lift the dependency further up or decide what interactor to inject depending on build type, some config or even choose it in runtime, it's up to you.
+So, this was the dependency injection you've just did. :) Now, `DataPresenter` is decoupled from particular `IRestInteractor` instance and knows nothing about the data source (it may be production server, development server, mock or whatever else). The next object in the dependencies tree may choose to lift the dependency further up or decide what interactor to inject depending on build type, some config or even choose it in runtime, it's up to you.
 
 Sounds pretty good, eh? But what if there are a lot of dependencies and a lot of components that require injection. There will be quite a mess with all those constructors and setters. And if you want to change some of the dependencies, remove or add one, you may need to rewrite it in multiple places. Moreover, the code becomes clumsy and less prone to errors. That's when the DI frameworks are coming to our help. 
 
