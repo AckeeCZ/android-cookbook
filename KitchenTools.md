@@ -20,7 +20,7 @@ Retrofit and OkHttp are great, but when it goes about image downloading, they ar
 
 If [Retrofit][1] is an obvious choice for REST API client, it isn't so clear with image downloading libraries. There is quite a competition between Picasso, [Glide][6], [Fresco][7] from Facebook and a little more old [UIL][8]. It seems like Picasso and Glide are quite similar +/- some features when Fresco uses a little bit different aproach. You may read more about the comparison [here][9].
 
-We were using Glide and Fresco for a little, but now we are with Picasso as suits all our needs: it allows to load an image to 'ImageView' using one row, it allows different scaling, resizing and custom transformations, it allows to use callbacks and load images as bitmaps to custom targets, it uses robust OkHttp downloader that handles caching and provides neat logging. But it's up to you to decide what image downloading library is the best for you, all seem quite solid.
+We were using Glide and Fresco for a little, but now we are with Picasso as suits all our needs: it allows to load an image to `ImageView` using one row, it allows different scaling, resizing and custom transformations, it allows to use callbacks and load images as bitmaps to custom targets, it uses robust OkHttp downloader that handles caching and provides neat logging. But it's up to you to decide what image downloading library is the best for you, all seem quite solid.
 
 Again, this [resource][10] gives a very detailed overview on Picasso (and Glide as well), don't hesitate to use it.
 
