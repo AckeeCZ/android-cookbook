@@ -20,6 +20,6 @@ Here you can find all the chapters of our cookbook, from best practices to recip
 [2]:	https://github.com/AckeeCZ/nodejs-cookbook
 [3]:  https://www.ackee.cz/
 [4]:  https://github.com/AckeeCZ/android-cookbook/blob/master/CookingTechnologies.md
-[5]:  https://github.com/AckeeCZ/android-cookbook/blob/master/KitchenTools
-[6]:  https://github.com/AckeeCZ/android-cookbook/blob/master/CookingRules
-[7]:  https://github.com/AckeeCZ/android-cookbook/blob/master/Recipes
+[5]:  https://github.com/AckeeCZ/android-cookbook/blob/master/KitchenTools.md
+[6]:  https://github.com/AckeeCZ/android-cookbook/blob/master/CookingRules.md
+[7]:  https://github.com/AckeeCZ/android-cookbook/blob/master/Recipes.md
