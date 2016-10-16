@@ -46,7 +46,20 @@ The big drawback of RxJava that it isn't quite intuitive for the programmers who
 
 If you ar new to this approach and want to know more, read [this blog][16].
 
-[1]:	https://square.github.io/retrofit/
+## Stetho
+
+This is one of the libraries that isn't used in the production phase, moreover, it should be disabled for all but debug builds. [Stetho][17] is an ultimate debugging tool from Facebook that allows to debug... practically everything that Android Studio debug doesn't allow. Stetho is relying on ADB ([Android Debug Bridge]) and allows to access its features via Chrome Developer Tools or command-line interface. 
+
+Here are the main features of Stetho that we're using in Ackee:
+
+- Access database in real-time: search and read values, change/delete values, make SQL queries etc. If you're worrying about security, Stetho uses ADB, so nobody except the developer can't access this data. Just turn off Stetho for production.
+- Access, create, update and delete Shared Preferences and other local storages.
+- With the help of StethoInterceptor for [OkHttp][3] analyze Http requests (read headers and bodies, visualize timing, filter errors and more other googies)
+- Analyze layouts in real-time: Stetho shows the current layout structure and highlights the current view in your device as you click on it. Moreover it shows all the information about the view (visibility, margins, padding, size etc.)
+
+There are even more features that we don't know yet. But even now, we can't imagine our development without this handy tool.
+
+[1]:  https://square.github.io/retrofit/
 [2]:  https://square.github.io/
 [3]:  https://github.com/square/okhttp
 [4]:  https://futurestud.io/tutorials/retrofit-getting-started-and-android-client
@@ -62,3 +75,5 @@ If you ar new to this approach and want to know more, read [this blog][16].
 [14]: https://github.com/ReactiveX/RxAndroid
 [15]: https://github.com/evant/gradle-retrolambda
 [16]: http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/
+[17]: http://facebook.github.io/stetho/
+[18]: https://developer.android.com/studio/command-line/adb.html
