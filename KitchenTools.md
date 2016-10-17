@@ -48,7 +48,7 @@ If you ar new to this approach and want to know more, read [this blog][16].
 
 ## Stetho
 
-This is one of the libraries that isn't used in the production phase, moreover, it should be disabled for all but debug builds. [Stetho][17] is an ultimate debugging tool from Facebook that allows to debug... practically everything that Android Studio debug doesn't allow. Stetho is relying on ADB ([Android Debug Bridge]) and allows to access its features via Chrome Developer Tools or command-line interface. 
+This is one of the libraries that isn't used in the production phase, moreover, it should be disabled for all but debug builds. [Stetho][17] is an ultimate debugging tool from Facebook that allows to debug... practically everything that Android Studio debug doesn't allow. Stetho is relying on ADB ([Android Debug Bridge][18]) and allows to access its features via Chrome Developer Tools or command-line interface. 
 
 Here are the main features of Stetho that we're using in Ackee:
 
