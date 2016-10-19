@@ -59,6 +59,22 @@ Here are the main features of Stetho that we're using in Ackee:
 
 There are even more features that we don't know yet. But even now, we can't imagine our development without this handy tool.
 
+## Dagger
+
+[Dagger][19] and [Dagger 2][20] are fast and easy to use libraries for dependency injection. You can read more about dependency injection and Dagger libraries in our [article][21].
+
+## SQLBrite
+
+[SQLBrite][22] is a reactive SQLite wrapper that provides access to database with the help of observables that may listen to table updates. It allows to acquire and handle database updates "real-time". But if you don't want to be reactive all the time, SQLBrite provides a classical imperative interface to access to the DB.
+
+SQLBrite isn't in full swing yet, so there aren't much tutorials and examples on the internet, but the documentation is quite good and the interface is easily learnable given you are familiar with [RxJava][11]. 
+
+In Ackee we are using another wrapper on SQLBrite :). [SQLBrite Dao][23] makes the DB access easier with the help of reactive Data Access Objects (DAOs). It allows to map POJOs with DAOs with the help of annotation processor and provides convenient interface for content values creation and getting data from cursor. You may reed more about it [here][24].
+
+The reactive approach to DB is really great. It eliminates a lot of boilerplate code and makes you stop worrying if you always have the actual data in your views. But you should be more carful. At first, we were really enthusiastic about this approach, but on our first big project when we were using SQLBrite, we noticed some drop in performance. After a bit of debugging we've found out that it is due to several big join queries, which observables are constantly listening to the changes in each table from these joins. Fortunately, the listening is customisable, and when we started to listen only to required updates, the times impoved drastically.
+
+SQLBrite requires RxJava knowledge and some caution, but when used wisely, it is really a great tool that simplifies work with database. Now as we have some experience with it, we will possibly write an article about it in the near future.
+
 [1]:  https://square.github.io/retrofit/
 [2]:  https://square.github.io/
 [3]:  https://github.com/square/okhttp
@@ -77,3 +93,9 @@ There are even more features that we don't know yet. But even now, we can't imag
 [16]: http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/
 [17]: http://facebook.github.io/stetho/
 [18]: https://developer.android.com/studio/command-line/adb.html
+[19]: http://square.github.io/dagger/
+[20]: https://google.github.io/dagger/
+[21]: https://github.com/AckeeCZ/android-cookbook/blob/master/DependencyInjection.md
+[22]: https://github.com/square/sqlbrite
+[23]: https://github.com/sockeqwe/sqlbrite-dao
+[24]: http://hannesdorfmann.com/android/sqlbrite-dao
