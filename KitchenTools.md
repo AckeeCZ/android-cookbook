@@ -75,6 +75,12 @@ The reactive approach to DB is really great. It eliminates a lot of boilerplate 
 
 SQLBrite requires RxJava knowledge and some caution, but when used wisely, it is really a great tool that simplifies work with database. Now as we have some experience with it, we will possibly write an article about it in the near future.
 
+### Some other tools that we are using
+
+- [Nucleus MVP][25] - framework that supports reactive approach to [MVP pattern][26]
+- [Butterknife][27] (read about it in our [article][21] about dependency injection)
+- [ParcelablePlease][28] - annotation processing-based generator for parcelable boilerplate code
+
 [1]:  https://square.github.io/retrofit/
 [2]:  https://square.github.io/
 [3]:  https://github.com/square/okhttp
@@ -99,3 +105,7 @@ SQLBrite requires RxJava knowledge and some caution, but when used wisely, it is
 [22]: https://github.com/square/sqlbrite
 [23]: https://github.com/sockeqwe/sqlbrite-dao
 [24]: http://hannesdorfmann.com/android/sqlbrite-dao
+[25]: https://github.com/konmik/nucleus
+[26]: TODO
+[27]: http://jakewharton.github.io/butterknife/
+[28]: https://github.com/sockeqwe/ParcelablePlease
