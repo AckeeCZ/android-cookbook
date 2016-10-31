@@ -79,6 +79,7 @@ SQLBrite requires RxJava knowledge and some caution, but when used wisely, it is
 
 - [Nucleus MVP][25] - framework that supports reactive approach to [MVP pattern][26]
 - [Butterknife][27] (read about it in our [article][21] about dependency injection)
+- [RxBinding][29] - Rx support for view events
 - [ParcelablePlease][28] - annotation processing-based generator for parcelable boilerplate code
 
 [1]:  https://square.github.io/retrofit/
@@ -109,3 +110,4 @@ SQLBrite requires RxJava knowledge and some caution, but when used wisely, it is
 [26]: TODO
 [27]: http://jakewharton.github.io/butterknife/
 [28]: https://github.com/sockeqwe/ParcelablePlease
+[29]: https://github.com/JakeWharton/RxBinding
