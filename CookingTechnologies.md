@@ -33,7 +33,8 @@ But shortly, why Rx(Java) is cool:
 
 If you want to become reactive (if you aren't already), there is already a lot of good stuff about it on the internet. We recommend [this blog][8] and [this visualization][9] to understand better how the operators work.
 
-// TODO MVP,...
+## MVP (Model-view-presenter)
+MVP is an architectural pattern used mostly for systems with UI. Now we're in the process of writing a serie of articles about our experience with this approach. The first part is [here][12], the second will be ready soon. You may also read about MVP for Android [here][10] and [here][11].
 
 [1]:  https://github.com/AckeeCZ/android-cookbook/blob/master/DependencyInjection.md
 [2]:  http://reactivex.io/
@@ -44,3 +45,6 @@ If you want to become reactive (if you aren't already), there is already a lot o
 [7]:  https://github.com/AckeeCZ/android-cookbook/blob/master/KitchenTools.md
 [8]:  http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/
 [9]:  http://rxmarbles.com/
+[10]: http://antonioleiva.com/mvp-android/
+[11]: https://github.com/konmik/konmik.github.io/wiki/Introduction-to-Model-View-Presenter-on-Android
+[12]: https://medium.com/ackee/an-introduction-to-mvp-on-android-2fceaa4a11e#.b9fznedux
