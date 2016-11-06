@@ -11,8 +11,11 @@ We use:
 ## Programming style
 We use:
 - blocking operations (loading, db-transactions) asynchronously
-- snackbar instead of toasts
 - reactive chaining methods instead of timers and handlers
+- guidelines according to the http://material.google.com, unless it doesn't go against a proposal of a designer
+- `styles.xml`, `dimens.xml`, `strings.xml` etc. instead of hardcoded values
+- `String.format()` instead of the native concatenation
+- self-explanatory methods, prefixes like `get`, `set`, `show`, `calc`, `update`, ...
 
 
 # Conventions
@@ -54,11 +57,12 @@ We usually don't comment:
 
 ### Naming conventions for identifiers:
 
-| Type   | Prefix            |		Example               |
-|--------------| ------------------|------------------|
-|Button   | `btn_`             | `btn_start`    |
-|ImageView   | `img_`             | `img_detail`    |
-|TextView   | `txt_`             | `txt_password`    |
+| Type   | Prefix            |		Example               | Class member example |
+|--------------| ------------------|------------------|------------------|
+|Button   | `btn_`             | `btn_start`    | `btnStart` |
+|ImageView   | `img_`             | `img_detail`    | `imgDetail` |
+|TextView   | `txt_`             | `txt_title`    | `txtTitle` |
+|EditText   | `edit_`             | `edit_password`    | `editPassword` |
 
 ### Naming conventions for strings:
 
