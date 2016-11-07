@@ -14,7 +14,7 @@ Here you can find all the chapters of our cookbook, from best practices to recip
 - [Cooking technologies][4] The approaches we are following while making our apps
 - [Kitchen tools][5] Tools and libraries we are using
 - [Cooking rules][6] The style and rules we are following to keep our code consistent
-- [Recipes][6] Code snippets and examples
+- [Recipes][7] Code snippets and examples
 
 [1]:	https://github.com/AckeeCZ/ios-cookbook
 [2]:	https://github.com/AckeeCZ/nodejs-cookbook
