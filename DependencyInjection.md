@@ -11,7 +11,7 @@ public class DataPresenter {
 
     public void showData() {
         // ...
-        data = new ProdRestInteractor.getData();
+        data = new ProdRestInteractor().getData();
         // ...
     }
 }
