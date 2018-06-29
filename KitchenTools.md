@@ -75,6 +75,78 @@ The reactive approach to DB is really great. It eliminates a lot of boilerplate 
 
 SQLBrite requires RxJava knowledge and some caution, but when used wisely, it is really a great tool that simplifies work with database. Now as we have some experience with it, we will possibly write an article about it in the near future.
 
+## Anko
+
+Instead of traditional XML layouts we use [Anko][31] for definition of layouts. At one of MDevTalks David had a [presentation][30] about our approach to Anko. Here are some general rules that we use when building this layouts:
+* standard Kotlin Style [guides][32] applies as for any other Kotlin code
+* every layout is in separate class, we don't define layouts directly in Activities or Fragments. There is one exception with custom Views, layout is defined in constructor of View
+* properties are defined at the top of the View before any child Views
+* id and layoutParams are first properties defined for View. 
+* between properties and first child View is newline
+* between two consecutive child Views in parent ViewGroup is newline
+* lparams are defined after the View definition. If it's not possible (top level ViewGroup) its defined inside the View traditionally
+* we try to make custom extensions on ViewManager that contains common View components, like `titleTextView` `defaultInputLayout` 
+* empty block {} is forbidden. If View has no additional attributes, just don't add this block :)
+* if View has its constructor with most common property eg. `textView(text = R.string.my_text)` it's always preferred to use this constructor. 
+
+Here is an example of simple layout with there applied rules
+
+```kotlin
+
+/**
+ * Layout of login screen
+ */
+class LoginLayout(parent: ViewGroup) : ViewLayout(parent) {
+
+    lateinit var inputMail: TextInputLayout
+    lateinit var inputPassword: TextInputLayout
+    lateinit var btnLogin: Button
+    lateinit var progress: View
+
+    override fun createViewInternal(ankoContext: AnkoContext<ViewGroup>): View {
+        return with(ankoContext) {
+            frameLayout {
+                nestedScrollView {
+                    isFillViewport = true
+
+                    verticalLayout {
+                        padding = dip(16)
+
+                        inputMail = defaultTextInputLayout {
+                            hint = string(R.string.login_email_hint)
+                            with(editText!!) {
+                                inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                            }
+                        }
+
+                        inputPassword = defaultTextInputLayout {
+                            isPasswordVisibilityToggleEnabled = true
+                            hint = string(R.string.login_password_hint)
+                            with(editText!!) {
+                                inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                                onEditorAction { _, actionId, _ ->
+                                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                                        btnLogin.performClick()
+                                        hideIme()
+                                    }
+                                }
+                            }
+                        }
+
+                        space().lparams(height = 0, weight = 1f)
+
+                        btnLogin = primaryButton(text = R.string.login_btn_login)
+                                .lparams(width = matchParent)
+                    }
+                }.lparams(width = matchParent, height = matchParent)
+
+                progress = screenProgress()
+            }
+        }
+    }
+}
+```
+
 ### Some other tools that we are using
 
 - [Nucleus MVP][25] - framework that supports reactive approach to [MVP pattern][26]
@@ -111,3 +183,6 @@ SQLBrite requires RxJava knowledge and some caution, but when used wisely, it is
 [27]: http://jakewharton.github.io/butterknife/
 [28]: https://github.com/sockeqwe/ParcelablePlease
 [29]: https://github.com/JakeWharton/RxBinding
+[30]: https://t.co/EMuCLjh3n6
+[31]: https://github.com/Kotlin/anko
+[32]: https://android.github.io/kotlin-guides/style.htm
