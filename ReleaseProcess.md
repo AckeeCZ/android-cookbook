@@ -5,37 +5,37 @@ In Ackee we have a well defined process of releasing the new version of the app.
 - He forgot to upload `mapping.txt` to our crash reporting tool and the crashes were obfuscated. Also this `mapping.txt` was probably lost forever.
 - He did not marked this point in VCS as a release and it was really hard to guess which one of the commits was the release one to reproduce a bug that occurred.
 - Version of the app was not increased and it was ambiguous in which version to look up the bug/crash. 
-- We have found that the url for our apps contains package name with pattern like `cz.ackee.nameoftheapp`. This is a little embarassing, because at first it may look like a good advertising for our company but in reality its a sign of amaterism. Its not that rare that the client will take the app from one agency to another or he will create an internal team but now he is stucked with our name there because Play store does not allow change of this package name.
+- We have found that the url for our apps contains package name with pattern like `cz.ackee.nameoftheapp`. This is a little embarassing, because at first it may look like a good advertising for our company but in reality it's a sign of amateurism. It's not that rare that the client will take the project from one agency to another or he will create an internal team but now he is stucked with our name there because Play store does not allow change of this package name.
 
 Several of them are not that problematic, couple of them are but we eliminated most of that with automated/well described process of the release. 
 
 ### CI
 The crucial part is that we have for every app so called "Release job" in our Jenkins CI. Build configuration in this job is the source of truth and all the changes should be made there. 
-Resposibilities of the job are:
-- it knows combination of flavors/build types, build properties to always produce the right Apk.
+Responsibilities of the job are:
+- it knows combination of flavors/build types, build properties to always produce the right apk.
 - it always fetches the actual code from Git from `master` branch
 - it uploads produced apk to HockeyApp with the `mapping.txt`
 - it archives the apk and `mapping.txt` to the current build 
 
-This is our current automated list and we would like to improve it with stuff like automated tagging or Play store upload so it lies ahead of us in the near feature.
+This is our current automated list and we would like to improve it with stuff like automated tagging or Play store upload, it lies ahead of us in the near feature.
 
 ### Manual process
 There is still some manual work that we have to do and is not (yet) automated.
 
-- the app version has to be increased eg. 2.0.0 -> 2.0.1. We increase even versions that are not yet fully rolled-out so its easily distinguishable which version is which. 
+- the app version has to be increased eg. 2.0.0 -> 2.0.1. We increase even versions that are not yet fully rolled-out so it's easily distinguishable which version is which. 
 - the code has to be merged into master branch 
 - the tag has to be created with the version name in its name, like `v2.0.1`
-- upload of apk to play store
+- upload of apk to Play store
 
 as mentioned in previous sections, couple of this task will be automated 
 
 ### Play store upload
-In last couple of years the Play store massively improved its release management with stuff like Alfa/Beta channels, staged rollouts, internal test tracks and pre launch reports. We try to leverage as much as possible from that and thats why our typical upload process looks like
-- grab the Apk from the Jenkins release job and upload it to **Internal test track**. Ideally retrieve release notes from the manager and fills them. but they can be changed later.
-- let the play store perform [Pre-launch testing](https://support.google.com/googleplay/android-developer/answer/7002270?hl=en) and provides you reports from that. That takes couple of hours to do completely
-- check for possible issues - crashes, ANRs, memory management, performance. ..
+In last couple of years the Play store massively improved its release management with stuff like Alfa/Beta channels, staged rollouts, internal test tracks and pre launch reports. We try to leverage as much as possible from that and that's why our typical upload process looks like
+- grab the Apk from the Jenkins release job and upload it to **Internal test track**. Ideally retrieve release notes from the manager and fills them, but they can be changed later.
+- let the Play store perform [Pre-launch testing](https://support.google.com/googleplay/android-developer/answer/7002270?hl=en) and provides you reports from that. That takes couple of hours to do completely.
+- check for possible issues - crashes, ANRs, memory management, performance...
 - if all is good, proceed, if not, investigate problems, evaluate that and resolve
-- unfortunately its not possible to move from internal track directly to Production, so its needed to move this version to Alfa channel and then to production
+- unfortunately it's not possible to move from internal track directly to Production, so it's needed to move this version to Alfa channel and then to production
 - perform staged rollout of the app, typically Play store ofers percentages itself so try to keep it
 - in the next days, check for problems, if any, fix them, if not, increase percentages until 100% 
 
