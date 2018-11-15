@@ -15,6 +15,7 @@ Here you can find all the chapters of our cookbook, from best practices to recip
 - [Kitchen tools][5] Tools and libraries we are using
 - [Cooking rules][6] The style and rules we are following to keep our code consistent
 - [Recipes][7] Code snippets and examples
+- [Release process][8] Typical process of release of the new app version
 
 [1]:	https://github.com/AckeeCZ/ios-cookbook
 [2]:	https://github.com/AckeeCZ/nodejs-cookbook
@@ -23,3 +24,4 @@ Here you can find all the chapters of our cookbook, from best practices to recip
 [5]:  https://github.com/AckeeCZ/android-cookbook/blob/master/KitchenTools.md
 [6]:  https://github.com/AckeeCZ/android-cookbook/blob/master/CookingRules.md
 [7]:  https://github.com/AckeeCZ/android-cookbook/blob/master/Recipes.md
+[8]:  https://github.com/AckeeCZ/android-cookbook/blob/master/ReleaseProcess.md
